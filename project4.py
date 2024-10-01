@@ -1,5 +1,5 @@
 import json
-
+#sp23-bai-054
 # Define the castle map
 castle_map = {
     'Entrance': {
@@ -60,6 +60,7 @@ current_room = 'Entrance'
 # To track unlocking triggers
 secret_chamber_unlocked = False
 
+#sp23-bai-044
 def display_room_details(room):
     """Displays the description, exits, and items in the current room."""
     print(f"\nYou are in the {room}.")
@@ -69,7 +70,8 @@ def display_room_details(room):
         print("Items in this room:", ', '.join(castle_map[room]['items']))
     else:
         print("No items to see here.")
-
+        
+#sp23-bai-054
 def move_to_room(direction):
     """Moves the player to a new room, if possible."""
     global current_room
@@ -101,11 +103,14 @@ def move_to_room(direction):
             display_room_details(current_room)
     else:
         print("You can't go that way.")
-
+        
+#sp23-bai-044
 def look():
     print ("room:",[current_room])
     if player_inventory:
         print("inventory:",player_inventory)
+        
+#sp23-bai-054
 def pick_up_item(item):
     """Allows the player to pick up items in the room."""
     if item in castle_map[current_room]['items']:
@@ -118,7 +123,7 @@ def pick_up_item(item):
     else:
         print(f"{item} is not here.")
 
-
+#sp23-bai-044
 def examine_items(item):
     """Examine a specific item in the room for clues or hidden objects."""
     if item in castle_map[current_room]['items']:
@@ -145,7 +150,7 @@ def examine_items(item):
         print(f"{item} is not a key to unlock")
 
 
-
+#sp23-bai-054
 def save_game():
     """Saves the current game state to a file."""
     game_state = {
@@ -157,22 +162,7 @@ def save_game():
         json.dump(game_state, file)
     print("Game saved!")
 
-import json
-
-def save_game():
-    """Saves the current room and inventory to a file."""
-    game_state = {
-        'current_room': current_room,
-        'inventory': player_inventory
-    }
-    try:
-        with open('save_game.json', 'w') as file:
-            json.dump(game_state, file)
-        print("Game saved successfully!")
-    except IOError:
-        print("An error occurred while saving the game.")
-
-
+#sp23-bai-044
 # Main game loop
 def game_loop():
     display_room_details(current_room)
