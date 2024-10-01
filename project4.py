@@ -162,7 +162,7 @@ def save_game():
         json.dump(game_state, file)
     print("Game saved!")
 
-#sp23-bai-044
+#both
 # Main game loop
 def game_loop():
     display_room_details(current_room)
